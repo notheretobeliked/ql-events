@@ -82,14 +82,4 @@ class Attendees extends PostObjects {
 		);
 	}
 
-	/**
-	 * Returns the args to be used in the connection for a given attendee post-type.
-	 *
-	 * @param mixed|WP_Post_Type|WP_Taxonomy $attendee_type The Attendee type.
-	 *
-	 * @return array
-	 */
-	public static function get_attendee_type_connection_args( $attendee_type ) {
-		return self::get_connection_args( [], $attendee_type );
-	}
 }

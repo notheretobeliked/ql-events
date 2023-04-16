@@ -213,34 +213,6 @@ class Core_Schema_Filters {
 		return $fields;
 	}
 
-	/**
-	 * Filter callback for inject WPObject types with the "Ticket" interface.
-	 *
-	 * @param array $config  WPObject type config.
-	 *
-	 * @return array
-	 */
-	public static function assign_ticket_interface( $config ) {
-		switch ( $config['name'] ) {
-			case 'RSVPTicket':
-			case 'PayPalTicket':
-			case 'SimpleProduct':
-				$config['interfaces'][] = 'Ticket';
-				break;
-
-			case 'PayPalOrder':
-			case 'Order':
-				$config['interfaces'][] = 'TECOrder';
-				break;
-
-			case 'RSVPAttendee':
-			case 'PayPalAttendee':
-			case 'WooAttendee':
-				$config['interfaces'][] = 'Attendee';
-		}
-
-		return $config;
-	}
 
 	/**
 	 * Filter to determine if the data should be considered private or not

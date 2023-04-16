@@ -115,15 +115,6 @@ if ( ! class_exists( '\WPGraphQL\QL_Events\QL_Events' ) ) :
 		 * @return bool
 		 */
 		public static function is_ticket_events_plus_loaded() {
-			$activated = function_exists( 'tribe_check_plugin' );
-			if ( $activated ) {
-				$tickets_plus_can_run = self::is_ticket_events_loaded()
-					&& class_exists( 'Tribe__Tickets_Plus__Main' )
-					&& tribe_check_plugin( 'Tribe__Tickets_Plus__Main' );
-
-				return apply_filters( 'tribe_event_tickets_plus_can_run', $tickets_plus_can_run ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-			}
-
 			return false;
 		}
 
@@ -210,14 +201,9 @@ if ( ! class_exists( '\WPGraphQL\QL_Events\QL_Events' ) ) :
 			require $include_directory_path . 'data/connection/class-organizer-connection-resolver.php';
 			require $include_directory_path . 'data/connection/class-ticket-connection-resolver.php';
 			require $include_directory_path . 'data/class-factory.php';
-
-			require $include_directory_path . 'mutation/class-register-attendee.php';
-			require $include_directory_path . 'mutation/class-update-attendee.php';
-
-			require $include_directory_path . 'connection/class-attendees.php';
+	
 			require $include_directory_path . 'connection/class-events.php';
 			require $include_directory_path . 'connection/class-organizers.php';
-			require $include_directory_path . 'connection/class-tickets.php';
 
 			require $include_directory_path . 'class-core-schema-filters.php';
 			require $include_directory_path . 'class-type-registry.php';
